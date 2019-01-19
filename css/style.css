@@ -1,0 +1,82 @@
+body {
+  background-color: #252525;
+  color: #252525;
+  font-family: "Bungee", cursive;
+}
+
+.input-field {
+  transform: skewY(-10deg);
+  margin-top: 100px;
+}
+
+.input-title {
+  color: #f6f6f6;
+  padding-left: 7vw;
+  margin: 0;
+  font-size: 7vw;
+}
+
+.input-card,
+.input-body {
+  width: 100vw;
+  height: 400px;
+}
+
+.input-card {
+  background-color: #ffe460;
+}
+
+.input-body {
+  transform: skewY(10deg);
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  align-items: center;
+}
+
+.oob-input,
+.oob-button {
+  text-align: center;
+  font-family: "Bungee", cursive;
+  height: 80px;
+  width: 500px;
+  border: 0;
+}
+
+.oob-button {
+  margin: 15px;
+  border: 2px solid #fc544e;
+  color: #fc544e;
+  background-color: transparent;
+}
+
+.footer {
+  text-align: right;
+  color: #fc544e;
+  padding-right: 4vw;
+  font-size: 1.5vw;
+}
+
+.footer > a {
+  color: #fc544e;
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .input-title {
+    font-size: 15vw;
+  }
+
+  .footer {
+    font-size: 4vw;
+  }
+
+  .oob-input,
+  .oob-button {
+    width: 90vw;
+  }
+}
