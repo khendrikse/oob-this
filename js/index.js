@@ -43,7 +43,7 @@ valueButton.addEventListener('click', function () {
     result.innerHTML = replaceVowels(value);
     twttr.widgets.createShareButton('/', resultBody, {
       size: 'large',
-      text: `I oob'd ${value} and it turned into ${replaceVowels(value)}. Check out @deletethispod and oob your own stuff at https://oob-it.netlify.com.`,
+      text: `I oob'd ${value} and it turned into ${replaceVowels(value)}. Check out @deletethispod and oob your own stuff at https://oob-this.netlify.com/.`,
       hashtags: 'piples, oobThis'
     })
   }
