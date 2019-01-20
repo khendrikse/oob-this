@@ -1,55 +1,57 @@
-const oobButton = document.getElementById("oob-button");
-const oobInput = document.getElementById("oob-input");
-const inputBody = document.getElementById("input-body");
-const oobBody = document.getElementById("oob-body");
-const oobedName = document.getElementById("oobed-name");
-const oobReset = document.getElementById("oob-reset");
-const tweet = document.getElementById("oob-tweet");
-
-const vowels = ["a", "e", "i", "o", "u"];
+const valueButton = document.getElementById('value-button');
+const valueInput = document.getElementById('value-input');
+const cardBody = document.getElementById('card-body');
+const resultBody = document.getElementById('result-body');
+const result = document.getElementById('result');
+const resultReset = document.getElementById('result-reset');
+const vowels = ['a', 'e', 'i', 'o', 'u'];
 
 const prepareValue = value => {
   return [...value.toLowerCase().trim()];
 };
 
 const checkY = (value, index) => {
-  return index !== 0 && value === "y";
+  return index !== 0 && value === 'y';
 };
 
-const oobIt = value =>
+const replaceVowels = value =>
   prepareValue(value)
     .map((v, i) => {
       if (vowels.includes(v) || checkY(v, i)) {
-        return "oob";
+        return 'oob';
       }
       return v;
     })
-    .join("");
+    .join('');
 
 const hideToggler = () => {
-  inputBody.classList.toggle("hidden");
-  oobBody.classList.toggle("hidden");
+  cardBody.classList.toggle('hidden');
+  resultBody.classList.toggle('hidden');
 };
 
-oobButton.addEventListener("click", function() {
-  value = oobInput.value;
-  if (value.length > 0) {
-    hideToggler();
-    oobedName.innerHTML = oobIt(value);
-    twttr.widgets.createShareButton("/", oobBody, {
-      size: "large",
-      text: `I oob'd ${value} and it turned into ${oobIt(value)}. Check out @deletethispod`,
-      hashtags: "piples, oobThis"
-    })
-    .then( function( el ) {
-  console.log('Tweet button added.');
-});
+valueInput.addEventListener('keyup', function (event) {
+  event.preventDefault();
+  if (event.keyCode === 13) {
+    valueButton.click();
   }
 });
 
-oobReset.addEventListener("click", function() {
+valueButton.addEventListener('click', function () {
+  value = valueInput.value;
+  if (value.length > 0) {
+    hideToggler();
+    result.innerHTML = replaceVowels(value);
+    twttr.widgets.createShareButton('/', resultBody, {
+      size: 'large',
+      text: `I oob'd ${value} and it turned into ${replaceVowels(value)}. Check out @deletethispod and oob your own stuff at https://oob-it.netlify.com.`,
+      hashtags: 'piples, oobThis'
+    })
+  }
+});
+
+resultReset.addEventListener('click', function () {
   hideToggler();
-  oobInput.value = "";
+  valueInput.value = '';
   const shareButton = document.getElementsByClassName('twitter-share-button')[0]
   shareButton.parentNode.removeChild(shareButton)
 });
