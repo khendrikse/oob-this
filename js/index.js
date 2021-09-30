@@ -41,10 +41,10 @@ valueButton.addEventListener('click', function () {
   if (value.length > 0) {
     hideToggler();
     result.innerHTML = replaceVowels(value);
-    twttr.widgets.createShareButton('/', resultBody, {
+    twttr.widgets.createShareButton('-', resultBody, {
       size: 'large',
-      text: `I oob'd ${value} and it turned into ${replaceVowels(value)}. Check out @deletethispod and oob your own stuff at https://oob-this.netlify.com/.`,
-      hashtags: 'piples, oobThis'
+      text: `I oob'd ${value} and it turned into ${replaceVowels(value)}. \n\nCheck out @deletethispod and oob your own stuff at https://oob-this.netlify.com.`,
+      hashtags: 'piples,oobThis'
     })
   }
 });
